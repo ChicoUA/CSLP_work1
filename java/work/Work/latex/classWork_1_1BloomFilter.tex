@@ -1,0 +1,110 @@
+\hypertarget{classWork_1_1BloomFilter}{}\section{Work.\+Bloom\+Filter Class Reference}
+\label{classWork_1_1BloomFilter}\index{Work.\+Bloom\+Filter@{Work.\+Bloom\+Filter}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classWork_1_1BloomFilter_ac61266e8a185a3c45a6bd55f201501e0}{Bloom\+Filter} (int n, int k)
+\item 
+int \hyperlink{classWork_1_1BloomFilter_a51b12111700fe438437ea4a3e417a448}{getN} ()
+\item 
+void \hyperlink{classWork_1_1BloomFilter_ad89720e05fbbd6383c45c3a7838c8789}{setN} (int n)
+\item 
+int \hyperlink{classWork_1_1BloomFilter_ac84e30c9b46982f948bcc7b19a4551b0}{getK} ()
+\item 
+void \hyperlink{classWork_1_1BloomFilter_a34c584cddceb2b532bba959394a99ef5}{setK} (int k)
+\item 
+void \hyperlink{classWork_1_1BloomFilter_a43575a7e07ba726869e99467e123bc76}{insert} (String var)
+\item 
+long \hyperlink{classWork_1_1BloomFilter_a26d4c3ed24f8ecedb67d2ed34e81f5d4}{search} (String var)
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classWork_1_1BloomFilter_ac61266e8a185a3c45a6bd55f201501e0}\label{classWork_1_1BloomFilter_ac61266e8a185a3c45a6bd55f201501e0}} 
+\index{Work\+::\+Bloom\+Filter@{Work\+::\+Bloom\+Filter}!Bloom\+Filter@{Bloom\+Filter}}
+\index{Bloom\+Filter@{Bloom\+Filter}!Work\+::\+Bloom\+Filter@{Work\+::\+Bloom\+Filter}}
+\subsubsection{\texorpdfstring{Bloom\+Filter()}{BloomFilter()}}
+{\footnotesize\ttfamily Work.\+Bloom\+Filter.\+Bloom\+Filter (\begin{DoxyParamCaption}\item[{int}]{n,  }\item[{int}]{k }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Constructor of the Bloomfilter
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & represents the size of the bloomfilter \\
+\hline
+{\em k} & represents the number of hash functions that will be applied to the values that are saved in the bloomfilter \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classWork_1_1BloomFilter_ac84e30c9b46982f948bcc7b19a4551b0}\label{classWork_1_1BloomFilter_ac84e30c9b46982f948bcc7b19a4551b0}} 
+\index{Work\+::\+Bloom\+Filter@{Work\+::\+Bloom\+Filter}!getK@{getK}}
+\index{getK@{getK}!Work\+::\+Bloom\+Filter@{Work\+::\+Bloom\+Filter}}
+\subsubsection{\texorpdfstring{get\+K()}{getK()}}
+{\footnotesize\ttfamily int Work.\+Bloom\+Filter.\+getK (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\begin{DoxyReturn}{Returns}
+returns the number of hash functions used in the bloomfilter 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classWork_1_1BloomFilter_a51b12111700fe438437ea4a3e417a448}\label{classWork_1_1BloomFilter_a51b12111700fe438437ea4a3e417a448}} 
+\index{Work\+::\+Bloom\+Filter@{Work\+::\+Bloom\+Filter}!getN@{getN}}
+\index{getN@{getN}!Work\+::\+Bloom\+Filter@{Work\+::\+Bloom\+Filter}}
+\subsubsection{\texorpdfstring{get\+N()}{getN()}}
+{\footnotesize\ttfamily int Work.\+Bloom\+Filter.\+getN (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\begin{DoxyReturn}{Returns}
+returns the size of the bloomfilter 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classWork_1_1BloomFilter_a43575a7e07ba726869e99467e123bc76}\label{classWork_1_1BloomFilter_a43575a7e07ba726869e99467e123bc76}} 
+\index{Work\+::\+Bloom\+Filter@{Work\+::\+Bloom\+Filter}!insert@{insert}}
+\index{insert@{insert}!Work\+::\+Bloom\+Filter@{Work\+::\+Bloom\+Filter}}
+\subsubsection{\texorpdfstring{insert()}{insert()}}
+{\footnotesize\ttfamily void Work.\+Bloom\+Filter.\+insert (\begin{DoxyParamCaption}\item[{String}]{var }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Function that inserts a new value into the bloomfilter. It creates a key by multiplying the integer value of each letter by its position in the word. Then creates a number of codes based on the number of hash functions. The code is calculated by multiplying the key by the value \textquotesingle{}a\textquotesingle{} of the hash function, then adds the value of \textquotesingle{}b\textquotesingle{}, finally makes two modulus, one by a large prime number, and another by the size of the bloomfilter so it can give a number between 0 and the size of the bloomfilter. Then increments the number of occurrences of that number inside the bloomfilter 
+\begin{DoxyParams}{Parameters}
+{\em var} & value that is to be saved into the bloomfilter \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classWork_1_1BloomFilter_a26d4c3ed24f8ecedb67d2ed34e81f5d4}\label{classWork_1_1BloomFilter_a26d4c3ed24f8ecedb67d2ed34e81f5d4}} 
+\index{Work\+::\+Bloom\+Filter@{Work\+::\+Bloom\+Filter}!search@{search}}
+\index{search@{search}!Work\+::\+Bloom\+Filter@{Work\+::\+Bloom\+Filter}}
+\subsubsection{\texorpdfstring{search()}{search()}}
+{\footnotesize\ttfamily long Work.\+Bloom\+Filter.\+search (\begin{DoxyParamCaption}\item[{String}]{var }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Function to get the number of occurrences, of a word, inside the bloomfilter. It creates the code following the same logic used in fucntion \hyperlink{classWork_1_1BloomFilter_a43575a7e07ba726869e99467e123bc76}{insert(\+String var)}. Since there is different values, depending on the number of hash functions and there are different strings that can give the same code while using a hash function, so the correct number is the lowest one 
+\begin{DoxyParams}{Parameters}
+{\em var} & word that is to be searched \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+returns the number of occurences of that word inside of the bloomfilter 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classWork_1_1BloomFilter_a34c584cddceb2b532bba959394a99ef5}\label{classWork_1_1BloomFilter_a34c584cddceb2b532bba959394a99ef5}} 
+\index{Work\+::\+Bloom\+Filter@{Work\+::\+Bloom\+Filter}!setK@{setK}}
+\index{setK@{setK}!Work\+::\+Bloom\+Filter@{Work\+::\+Bloom\+Filter}}
+\subsubsection{\texorpdfstring{set\+K()}{setK()}}
+{\footnotesize\ttfamily void Work.\+Bloom\+Filter.\+setK (\begin{DoxyParamCaption}\item[{int}]{k }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em k} & new number of hash functions for the bloomfilter \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classWork_1_1BloomFilter_ad89720e05fbbd6383c45c3a7838c8789}\label{classWork_1_1BloomFilter_ad89720e05fbbd6383c45c3a7838c8789}} 
+\index{Work\+::\+Bloom\+Filter@{Work\+::\+Bloom\+Filter}!setN@{setN}}
+\index{setN@{setN}!Work\+::\+Bloom\+Filter@{Work\+::\+Bloom\+Filter}}
+\subsubsection{\texorpdfstring{set\+N()}{setN()}}
+{\footnotesize\ttfamily void Work.\+Bloom\+Filter.\+setN (\begin{DoxyParamCaption}\item[{int}]{n }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & new value of the size of the bloomfilter \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Bloom\+Filter.\+java\end{DoxyCompactItemize}
