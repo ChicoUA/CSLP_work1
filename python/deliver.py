@@ -1,4 +1,6 @@
 # coding: utf-8
+##Documentation for this module.
+#More details.
 
 import logging
 import pickle
@@ -9,7 +11,8 @@ logging.basicConfig(level=logging.DEBUG,
                     format='%(asctime)s %(name)-12s %(levelname)-8s %(message)s',
                     datefmt='%m-%d %H:%M:%S')
 
-
+## Documentation for this function
+#More details.
 def main(ip, port):
     # create a logger for the client
     logger = logging.getLogger('Deliver')

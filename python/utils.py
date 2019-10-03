@@ -1,3 +1,5 @@
+##Documentation for this module.
+#More details.
 import time
 import argparse
 import math
@@ -15,18 +17,23 @@ REQ_FRIES = 8
 REQ_FOOD = 9
 ORDER_FOR_PICKUP = 10
 
-
+## Documentation for this function.
+#More details.
 def work():
     time.sleep(math.fabs(random.gauss(1, 2)))  # math.fabs(random.gauss(1, 2))
 
-
+## Documentation for this function.
+#More details.
 def wait():
     time.sleep(2)
 
-
+## Documentation for this function.
+#More details.
 def traveling():
     time.sleep(math.fabs(random.gauss(2, 3)))
 
+## Documentation for this function.
+#More details.
 def food():
     return random.randint(1, 5)
 

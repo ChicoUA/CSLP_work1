@@ -1,4 +1,7 @@
 # coding: utf-8
+##Documentation for this module.
+#More details.
+
 import uuid
 import logging
 import threading
@@ -14,19 +17,23 @@ logging.basicConfig(level=logging.DEBUG,
                     format='%(asctime)s %(name)-12s %(levelname)-8s %(message)s',
                     datefmt='%m-%d %H:%M:%S')
 
-
+## Documentation for this class.
+#More details.
 class Worker(threading.Thread):
+    ## Documentation for this function
+    #Calls the constructer from the parents class.
+    #Stores the necessary inputs
     def __init__(self, context, i, backend, restaurant):
-        # call the constructor form the parent class
         threading.Thread.__init__(self)
 
         self.socket = context.socket(zmq.REP)
         self.backend = backend
         self.restaurant = restaurant
 
-        # store the necessary inputs
         self.logger = logging.getLogger('Worker ' + str(i))
 
+    ## Documentation for this function
+    #More details.
     def run(self):
         self.socket.connect(self.backend)
 
@@ -85,26 +92,36 @@ class Worker(threading.Thread):
             self.socket.send(p)
         self.socket.close()
 
-
+## Documentation for this class.
+#More details.
 class DriveThrough():
+
+    ## Documentation for this function
+    #More details.
     def __init__(self):
         self.orders = Queue()
         self.task = Queue()
         self.OrdersToDeliver = Queue()
-        self.drink_machine = threading.Semaphore()  # go see lock to learn about
+        self.drink_machine = threading.Semaphore()
         self.grill = threading.Semaphore()
         self.frier = threading.Semaphore()
         self.pickupOrder = threading.Semaphore()
         self.OrdersToPickup = set()
 
+    ## Documentation for this function
+    #More details.
     def add_order(self, order):
         order_id = uuid.uuid1()
         self.orders.put((order_id, order))
         return order_id
 
+    ## Documentation for this function
+    #More details.
     def ready(self, order):
         self.task.put(order)
 
+    ## Documentation for this function
+    #More details.
     def pickup(self, order_id):
         self.pickupOrder.acquire()
         if order_id in self.OrdersToPickup:
@@ -115,46 +132,66 @@ class DriveThrough():
         self.pickupOrder.release()
         return item
 
+    ## Documentation for this function
+    #More details.
     def get_order(self):
         try:
             return self.orders.get(block=True, timeout=1)
         except:
             return "EMPTY"
 
+    ## Documentation for this function
+    #More details.
     def request_drink(self):
         self.drink_machine.acquire()
         work()
         self.drink_machine.release()
 
+    ## Documentation for this function
+    #More details.
     def request_burger(self):
         self.grill.acquire()
         work()
         self.grill.release()
 
+    ## Documentation for this function
+    #More details.
     def request_fries(self):
         self.frier.acquire()
         work()
         self.frier.release()
 
+    ## Documentation for this function
+    #More details.
     def add_order_to_pending(self, order):
         self.OrdersToDeliver.put(order)
 
+    ## Documentation for this function
+    #More details.
     def get_task(self):
         try:
             return self.OrdersToDeliver.get(block=True, timeout=1)
         except:
             return "EMPTY"
-
+    ## Documentation for this function
+    #More details.
     def get_FoodReady(self):
         try:
             return self.task.get(block=True, timeout=1)
         except:
             return "EMPTY"
-
+    ## Documentation for this function
+    #More details.
     def add_OrderForPickup(self, order):
         self.OrdersToPickup.add(order)
 
-
+## Documentation for this function
+#Initiates the front end for the clients (socket type Router)
+#initiates the backend for workers (socket type Dealer)
+#Sets up the workers with every worker being a different thread
+#Sets up proxy, this device, which is already implemented in ZMQ, connects the backend with the frontend
+#Joins all the workers
+#closes all the connections
 def main(ip, port):
     logger = logging.getLogger('Drive-through')
 
@@ -162,31 +199,23 @@ def main(ip, port):
     context = zmq.Context()
     restaurant = DriveThrough()
 
-    # frontend for clients (socket type Router)
     frontend = context.socket(zmq.ROUTER)
     frontend.bind("tcp://{}:{}".format(ip, port))
 
-    # backend for workers (socket type Dealer)
     backend = context.socket(zmq.DEALER)
     backend.bind("inproc://backend")
 
-    # Setup workers
     workers = []
     for i in range(5):
-        # each worker is a different thread
         worker = Worker(context, i, "inproc://backend", restaurant)
         worker.start()
         workers.append(worker)
 
-    # Setup proxy
-    # This device (already implemented in ZMQ) connects the backend with the frontend
     zmq.proxy(frontend, backend)
 
-    # join all the workers
     for w in workers:
         w.join()
 
-    # close all the connections
     frontend.close()
     backend.close()
     context.term()
