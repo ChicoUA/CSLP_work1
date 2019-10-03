@@ -8,6 +8,11 @@ public class InitHashFunction {
 	private long p;
 	private int k;//number of hash functions
 	
+	/**
+	 * Constructor for the hash functions
+	 * It creates two lists of random numbers with the size of the number of hash functions
+	 * @param k number of hash functions
+	 */
 	public InitHashFunction(int k) {
 		this.p = 1299721;//large prime number
 		int i;

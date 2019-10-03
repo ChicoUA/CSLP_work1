@@ -1,6 +1,8 @@
 package Work;
 import java.io.*;
 import java.util.*;
+
+/*! Class used to test the functionality of class Signature */
 public class Módulo3 {
 
 	public static void main(String[] args) throws FileNotFoundException {

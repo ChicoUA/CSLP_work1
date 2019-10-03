@@ -2,7 +2,7 @@ package Work;
 import java.io.*;
 import java.util.Scanner;
 import java.util.*;
-
+/*! Class used to for tests */
 public class Testes {
 
 	public static void main(String[] args) throws FileNotFoundException {

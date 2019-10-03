@@ -3,7 +3,7 @@ package Work;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.*;
-
+/*! Class used to test the aplication */
 public class Aplicação {
 
 	public static void main(String[] args) throws FileNotFoundException {
