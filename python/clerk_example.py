@@ -10,7 +10,7 @@ from utils import work, REQ_ORDER, ORDER_PENDING, wait
 logging.basicConfig(level=logging.DEBUG,
                     format='%(asctime)s %(name)-12s %(levelname)-8s %(message)s',
                     datefmt='%m-%d %H:%M:%S')
-
+                    
 ## Documentation for this class.
 #More details.
 def main(ip, port):
