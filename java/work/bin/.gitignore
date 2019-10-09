@@ -1,9 +1,6 @@
 /.classpath
 /.project
-/Aplicação.class
-/BloomFilter.class
-/Contador.class
-/InitHashFunction.class
+/Doxyfile
 /L1
 /L10
 /L2
@@ -14,14 +11,19 @@
 /L7
 /L8
 /L9
-/Módulo3.class
 /Relatório.docx
-/Signature.class
 /Sites dos livros
-/Testes.class
-/testeContador.class
+/html/
+/latex/
 /text1
 /text2.txt
 /text3
-/Aplicação2.class
+/Aplica.class
+/BloomFilter.class
+/Contador.class
+/InitHashFunction.class
+/M.class
+/Signature.class
+/Testes.class
+/testeContador.class
 /Work/
