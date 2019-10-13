@@ -3,14 +3,10 @@ package Work;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.Scanner;
-
+/*! Class used to test the class Contador */
 public class testeContador {
 
 	public static void main(String[] args) throws FileNotFoundException {
-		Contador cont=new Contador(false);
-		cont.adicionarV2(1000);
-		System.out.println("contador= "+cont.getContador());
-	
 		Contador cont2=new Contador(false);
 		for (int i = 0; i<1000000; i++) {
 			cont2.adicionar();

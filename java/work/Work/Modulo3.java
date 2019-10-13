@@ -1,7 +1,9 @@
 package Work;
 import java.io.*;
 import java.util.*;
-public class Módulo3 {
+
+/*! Class used to test the functionality of class Signature */
+public class Modulo3 {
 
 	public static void main(String[] args) throws FileNotFoundException {
 		int k=100;
@@ -9,12 +11,12 @@ public class Módulo3 {
 		ArrayList<Signature> listadeassinaturas=new ArrayList<>();
 		
 		
-		String f1="Aveiro é Nosso!";
-		String f2="Aveiro é Nosso!";
-		String f3="Coimbra é bonita?";
-		String f4="ola eu sou o Francisco gosto de gelado e adeus. Vamos divertirmos e comer muitos doces e o meu nome é Francisco. Era uma vez um cavaleiro chamado Arthur e que era muito corajoso e honroso. Comi muito gelado hoje mas esqueci de avisar os meus pais, adeus adeus adeus  e e e e";
-		String f5="adeus eu era o Francisco gostava de milho e ola. Comi divertirmos e comer muitos doces e o adeus nome é João. Era uma vez tres cavaleiros chamado Lancelot e gosto era muito corajoso e honroso. Comi muito gelado hoje mas esqueci de avisar os telefone pais, adeus adeus adeus  e e e e";
-		String f6="aveiro é nosso!";
+		String f1="Aveiro ï¿½ Nosso!";
+		String f2="Aveiro ï¿½ Nosso!";
+		String f3="Coimbra ï¿½ bonita?";
+		String f4="ola eu sou o Francisco gosto de gelado e adeus. Vamos divertirmos e comer muitos doces e o meu nome ï¿½ Francisco. Era uma vez um cavaleiro chamado Arthur e que era muito corajoso e honroso. Comi muito gelado hoje mas esqueci de avisar os meus pais, adeus adeus adeus  e e e e";
+		String f5="adeus eu era o Francisco gostava de milho e ola. Comi divertirmos e comer muitos doces e o adeus nome ï¿½ Joï¿½o. Era uma vez tres cavaleiros chamado Lancelot e gosto era muito corajoso e honroso. Comi muito gelado hoje mas esqueci de avisar os telefone pais, adeus adeus adeus  e e e e";
+		String f6="aveiro ï¿½ nosso!";
 		
 		Signature sig1=new Signature(f1,k,inithash);
 		Signature sig2=new Signature(f2,k,inithash);

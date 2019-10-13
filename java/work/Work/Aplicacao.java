@@ -3,14 +3,14 @@ package Work;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.*;
-
-public class Aplicação {
+/*! Class used to test the aplication */
+public class Aplicacao {
 
 	public static void main(String[] args) throws FileNotFoundException {
 		ArrayList<String[]> ListasDeLivros = new ArrayList<>();
 		ArrayList<Signature> ListaDeAssinaturas=new ArrayList<>();
 		TreeSet<String> NomesDeLivros = new TreeSet<>();
-		String[] Lists= {"L1", "L2", "L3","L4","L5","L6","L7","L8","L9","L10"};//Lista 5 serve de controlo(é igual à lista 1 com diferenças) e lista 10 é recolhida dos dados do bloomfilter. 
+		String[] Lists= {"L1", "L2", "L3","L4","L5","L6","L7","L8","L9","L10"};//Lista 5 serve de controlo(ï¿½ igual ï¿½ lista 1 com diferenï¿½as) e lista 10 ï¿½ recolhida dos dados do bloomfilter. 
 		int count=0;
 		int k=50;
 		long sum=0;
@@ -25,7 +25,7 @@ public class Aplicação {
 			Scanner sc = new Scanner(new FileReader(i));
 			while(sc.hasNextLine()) {
 				count++;
-				counter.adicionar();//Incremento do Contador Estocástico
+				counter.adicionar();//Incremento do Contador Estocï¿½stico
 				String line=sc.nextLine();
 				line=line.replaceAll("\\p{Punct}", "");
 				line=line.toLowerCase();
@@ -53,9 +53,9 @@ public class Aplicação {
 		System.out.println("");
 		System.out.println("Line Count: "+count);
 		System.out.println("BloomFilter Count: "+sum);
-		System.out.println("Valor do Contador Estocástico (número de livros): "+counter.getContador());
+		System.out.println("Valor do Contador Estocï¿½stico (nï¿½mero de livros): "+counter.getContador());
 		System.out.println("Unique Books: "+NomesDeLivros.size());
-		System.out.println("Valor do Contador Estocástico (livros únicos: "+counter2.getContador());
+		System.out.println("Valor do Contador Estocï¿½stico (livros ï¿½nicos: "+counter2.getContador());
 		System.out.println("");
 		
 		//Listas Semelhantes

@@ -1,0 +1,64 @@
+\hypertarget{classWork_1_1Contador}{}\section{Work.\+Contador Class Reference}
+\label{classWork_1_1Contador}\index{Work.\+Contador@{Work.\+Contador}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classWork_1_1Contador_a7e640dcd81e94b1be245157b13505cfa}{Contador} (boolean special)
+\item 
+int \hyperlink{classWork_1_1Contador_ac0ffd5556a2919cb521fcc934e0b4627}{get\+Contador} ()
+\item 
+void \hyperlink{classWork_1_1Contador_a272543fc47de1795d20af9b20bdd710d}{set\+Contador} (int contador)
+\item 
+void \hyperlink{classWork_1_1Contador_aef3e8c3204ac3653b6397a4df4aae8b3}{adicionar} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class that represents a Stochastic Counter 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classWork_1_1Contador_a7e640dcd81e94b1be245157b13505cfa}\label{classWork_1_1Contador_a7e640dcd81e94b1be245157b13505cfa}} 
+\index{Work\+::\+Contador@{Work\+::\+Contador}!Contador@{Contador}}
+\index{Contador@{Contador}!Work\+::\+Contador@{Work\+::\+Contador}}
+\subsubsection{\texorpdfstring{Contador()}{Contador()}}
+{\footnotesize\ttfamily Work.\+Contador.\+Contador (\begin{DoxyParamCaption}\item[{boolean}]{special }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Constructor for the Stochastic Counter 
+\begin{DoxyParams}{Parameters}
+{\em special} & defines if the counter will be logarithmic( special = true ) or if will be a counter with 50\% chance of counting \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classWork_1_1Contador_aef3e8c3204ac3653b6397a4df4aae8b3}\label{classWork_1_1Contador_aef3e8c3204ac3653b6397a4df4aae8b3}} 
+\index{Work\+::\+Contador@{Work\+::\+Contador}!adicionar@{adicionar}}
+\index{adicionar@{adicionar}!Work\+::\+Contador@{Work\+::\+Contador}}
+\subsubsection{\texorpdfstring{adicionar()}{adicionar()}}
+{\footnotesize\ttfamily void Work.\+Contador.\+adicionar (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Function used to increase the counter. If special is true, then the percentage to count will be reduced logarithmically for each iteration. It starts at 1(100\%), then 1/2(50\%), 1/3($\sim$33\%) ... And the number to add to the counter will increase, first is 1, then 2, 3, 4 ... Else it will count only with a percentage of 50\% and increase the counter by 2. \mbox{\Hypertarget{classWork_1_1Contador_ac0ffd5556a2919cb521fcc934e0b4627}\label{classWork_1_1Contador_ac0ffd5556a2919cb521fcc934e0b4627}} 
+\index{Work\+::\+Contador@{Work\+::\+Contador}!get\+Contador@{get\+Contador}}
+\index{get\+Contador@{get\+Contador}!Work\+::\+Contador@{Work\+::\+Contador}}
+\subsubsection{\texorpdfstring{get\+Contador()}{getContador()}}
+{\footnotesize\ttfamily int Work.\+Contador.\+get\+Contador (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\begin{DoxyReturn}{Returns}
+returns the value of the counter 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classWork_1_1Contador_a272543fc47de1795d20af9b20bdd710d}\label{classWork_1_1Contador_a272543fc47de1795d20af9b20bdd710d}} 
+\index{Work\+::\+Contador@{Work\+::\+Contador}!set\+Contador@{set\+Contador}}
+\index{set\+Contador@{set\+Contador}!Work\+::\+Contador@{Work\+::\+Contador}}
+\subsubsection{\texorpdfstring{set\+Contador()}{setContador()}}
+{\footnotesize\ttfamily void Work.\+Contador.\+set\+Contador (\begin{DoxyParamCaption}\item[{int}]{contador }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em contador} & new value for the counter \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Contador.\+java\end{DoxyCompactItemize}

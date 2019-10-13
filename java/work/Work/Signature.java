@@ -8,21 +8,35 @@ public class Signature {
 	private long[] signature;
 	private int k;
 	private InitHashFunction inithash;
-	
+	/**
+	 * Constructor when it receives a string
+	 * @param str string to be transformed into a signature
+	 * @param k size of the signature
+	 * @param inithash the hash functions used to determine the signature
+	 */
 	public Signature(String str, int k, InitHashFunction inithash) {
 		this.str = str;
 		this.k = k;
 		this.inithash=inithash;
 		this.signature=new long[k];
 	}
-
+	
+	/**
+	 * Constructor when it receives a list
+	 * @param list list of strings to be transformed into a signature
+	 * @param k size of the signature
+	 * @param inithash the hash functions used to determine the signature
+	 */
 	public Signature(String[] list, int k, InitHashFunction inithash) {
 		this.list = list;
 		this.k = k;
 		this.inithash=inithash;
 		this.signature=new long[k];
 	}
-
+	/**
+	 * Getter for the signature
+	 * @return returns the signature
+	 */
 	public long[] getSignature() {
 		return signature;
 	}
@@ -66,6 +80,15 @@ public class Signature {
 		this.inithash = inithash;
 	}
 
+	/**
+	 * Function that creates a signature, given a String.
+	 * First, it splits the string into shingles.
+	 * Second, it uses each shingle, one each iteration, and creates a key, by getting the value of each letter and multiplying by the position of that letter in the shingle and adds to the key.
+	 * Third, in that same iteration, it uses the key, and the values of the hash function and creates the code (code = (a * key + b) % p).
+	 * Finally, the smallest code is the one saved inside the signature.
+	 * This process is repeated for each hash function, the more functions, the bigger is the signature. 
+	 * @param len size of the shingles
+	 */
 	public void signatureMaker1(int len) {
 		
 		int i;
@@ -102,7 +125,13 @@ public class Signature {
 		}
 		this.signature=signatures;	
 	}
-	
+	/**
+	 * Function that creates a signature, given a list of Strings.
+	 * First, it uses each String, one each iteration, and creates a key, by getting the value of each letter and multiplying by the position of that letter in the string and adds to the key.
+	 * Second, in that same iteration, it uses the key, and the values of the hash function and creates the code (code = (a * key + b) % p).
+	 * Finally, the smallest code is the one saved inside the signature.
+	 * This process is repeated for each hash function, the more functions, the bigger is the signature. 
+	 */
 	public void signatureMaker2() {
 		
 		int i;
@@ -130,7 +159,13 @@ public class Signature {
 		}
 		this.signature=signatures;		
 	}
-	
+	/**
+	 * Function to compare two signatures.
+	 * It compares, for the same position, the elements of both signatures and, if they are equal, increments the variable equal.
+	 * Finally, to obtain the value of similarity, it divides equal by the size of the signature.
+	 * @param sig other signature used for comparation
+	 * @return returns the value of similarity between to signatures
+	 */
 	public double distance(Signature sig) {
 		double equal=0;
 		long[] sig2 = sig.getSignature();

@@ -8,6 +8,15 @@
 // solution of the traveling salesman problem
 //
 
+/** @file tsp.c
+* @brief Program to solve the travelling salesman problem.
+*
+* This program is used to solve the travelling salesman problem.
+* In this problem the salesman starts at a point and has to go through all the points in the system and end at the starting point.
+* So it is necessary to determine the smallest path possible.
+* In this program is also calculated the longest path.
+*/
+
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -16,7 +25,7 @@
 #include <sys/resource.h>
 
 #include "cities.h"
-#include "../P01/elapsed_time.h"
+#include "elapsed_time.h"
 
 //
 // record best solutions
@@ -33,11 +42,24 @@ int *hist;
 // first solution (brute force, distance computed at the end, compute best and worst tours)
 //
 
+/**
+* @brief Function that determines the smallest and the longest path through all the points.
+*
+* It first calculates all the possible permutations using the given points, each permutation corresponds to a possible path.
+* Second, it visits the each permutation and calculates the distante between points, and sums it all to get the total distance. 
+* Finally it adds the distance between the last point and first to get to the beggining of the path.
+* Third, after calculating the distance, it saves it to make a histogram, and compares it to the lowest value, and if it is lower, then this new distance is the new smallest distance,
+* the same is done for the longest distance, it compares with the value saved at the moment and checks if it is higer, if it is, then it is the new longest distance.
+*
+* @param n is the number of cities
+* @param m is the starting city
+* @param a it saves all the cities used
+*/
 
 void tsp_v1(int n,int m,int *a)
 {
 	int i, t, dis;
-	int sumDis = 0;
+	int sumDis = 0;// total distance
 
   if(m < n - 1)
     for(i = m;i < n;i++)
@@ -52,7 +74,7 @@ void tsp_v1(int n,int m,int *a)
     }
   else
   { // visit permutation
-    n_tours++;
+    n_tours++; // it will get the total number of tours
     // modify the following code to do your stuff
 	for (i = 0; i < n; i++) {
 
@@ -89,7 +111,9 @@ void tsp_v1(int n,int m,int *a)
 //
 // main program
 //
-
+/**
+* @brief This function is used just to test the solution created in this program. It uses the district capital of Portugal, and tries to solve the travelling salesman problem with them.
+*/
 int main(int argc,char **argv)
 {
   hist = malloc(sizeof(int*) * maxSize);
