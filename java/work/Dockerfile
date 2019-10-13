@@ -2,17 +2,7 @@
 
 FROM ubuntu:latest
 
-COPY ./Work/Aplicacao.class /usr/Work/
-COPY ./Work/BloomFilter.class /usr/Work/
-COPY ./Work/Contador.class /usr/Work/
-COPY ./Work/InitHashFunction.class /usr/Work/
-COPY ./Work/Modulo3.class /usr/Work/
-COPY ./Work/Signature.class /usr/Work/
-COPY ./Work/testeContador.class /usr/Work/
-COPY ./Work/Testes.class /usr/Work/
-COPY ./text1 /usr/
-COPY ./text2.txt /usr/
-COPY ./text3 /usr/
+COPY . /usr/work/
 
 # Install OpenJDK-8
 RUN apt-get update && \
@@ -31,11 +21,11 @@ ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64/
 RUN export JAVA_HOME
 
 
-WORKDIR /usr
+WORKDIR /usr/work/
 
 EXPOSE 8080
 
-CMD java -ea Work.Modulo3
+CMD java -ea Work.Aplicacao
 
 
 
